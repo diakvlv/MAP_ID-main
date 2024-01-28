@@ -174,6 +174,8 @@
         padding-left: 100px;
         padding-top: 10px;
         font-size: 20px;
+        max-width: 1100px; 
+        text-align: justify;
      }
 
      h2 {
@@ -341,6 +343,7 @@
         }
         h, h2, h4, h6, h5, h7, h8, h9 {
             padding-left: 10px;
+            padding-right: 10px;
         }
 
         h2{
@@ -477,7 +480,19 @@
     .correct { color: green; }
     .incorrect { color: red; }
 
-    /* UNIT AREA END  */
+   
 
 
 
+
+    table {
+      border-collapse: collapse;
+  }
+  table, th, td {
+      border: 1px solid black;
+      padding: 8px;
+      
+  }
+ 
+
+   /* UNIT AREA END  */

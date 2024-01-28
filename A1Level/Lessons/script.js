@@ -444,3 +444,128 @@ function gradeQuiz() {
       results.innerHTML += "Question " + (j + 1) + ": " + answers[j] + "<br>";
   }
 }
+
+function checkAnswers() {
+  var form = document.getElementById('testForm');
+  var inputs = form.getElementsByTagName('input');
+  var wrongAnswers = [];
+
+  for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() === '') {
+          alert('Please fill in all fields before submitting.');
+          return;
+      }
+  }
+
+  var correctAnswers = ['Vstávám', 'Oblékám', 'Obědvá', 'Dělá', 'Posloucháš', 'Hlídáme', 'Neběhám', 'Odpočívám', 'Děláte', 'Poslouchám', 'Nezpívám', 'Čekáte', 'Znáte', 'Neznám'];
+
+  for (var i = 0; i < inputs.length; i++) {
+      var userAnswer = inputs[i].value.trim();
+      if (userAnswer.toLowerCase() === correctAnswers[i].toLowerCase()) {
+          inputs[i].classList.add('correct');
+      } else {
+          inputs[i].classList.add('incorrect');
+          wrongAnswers.push((i + 1) + '. ' + correctAnswers[i]);
+      }
+  }
+
+  var resultDiv = document.getElementById('testResult');
+  if (wrongAnswers.length > 0) {
+      resultDiv.innerHTML = 'Wrong answers: ' + wrongAnswers.join(', ');
+  } else {
+      resultDiv.innerHTML = 'All answers are correct!';
+  }
+}
+
+function submitAnswers() {
+  var table = document.getElementById('testTable');
+  var inputs = table.getElementsByTagName('input');
+  var correctAnswers = [
+      'kupuju', 'dělám', 'vidím', 'říkám', 'kontroluju', 'mluvím',
+      'kupuješ', 'děláš', 'vidíš', 'říkáš', 'kontroluješ', 'mluvíš',
+      'kupuje', 'dělá', 'vidí', 'říká', 'kontroluje', 'mluví',
+      'kupujeme', 'děláme', 'vidíme', 'říkáme', 'kontrolujeme', 'mluvíme',
+      'kupujete', 'děláte', 'vidíte', 'říkáte', 'kontrolujete', 'mluvíte',
+      'kupují', 'dělají', 'vidí', 'říkají', 'kontrolují', 'mluví'
+  ];
+
+  for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim().toLowerCase() === correctAnswers[i]) {
+          inputs[i].classList.add('correct');
+          inputs[i].classList.remove('incorrect');
+      } else {
+          inputs[i].classList.add('incorrect');
+          inputs[i].classList.remove('correct');
+      }
+  }
+}
+
+function submitForm15() {
+  var form = document.getElementById('testForm15');
+  var inputs = form.getElementsByTagName('input');
+  var wrongAnswers = [];
+
+  for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() === '') {
+          alert('Please fill in all fields before submitting.');
+          return;
+      }
+  }
+
+  var correctAnswers = ['darujeme', 'cestují', 'plánuju', 'netancujete', 'stanujeme', 'sportuješ', 'maluje', 'kupuje', 'telefonujeme', 'opakujete', 'posiluješ', 'fotografuju'];
+
+  for (var i = 0; i < inputs.length; i++) {
+      var userAnswer = inputs[i].value.trim();
+      if (userAnswer.toLowerCase() === correctAnswers[i]) {
+          inputs[i].classList.add('correct');
+      } else {
+          inputs[i].classList.add('incorrect');
+          wrongAnswers.push((i + 1) + '. ' + correctAnswers[i]);
+      }
+  }
+
+  var resultDiv = document.getElementById('result15');
+  if (wrongAnswers.length > 0) {
+      resultDiv.innerHTML = 'Wrong answers: ' + wrongAnswers.join(', ');
+  } else {
+      resultDiv.innerHTML = 'All answers are correct!';
+  }
+}
+
+
+function submitForm16() {
+  var resultDiv = document.getElementById('result16');
+  resultDiv.innerHTML = '1) Dívají se na televizní zprávy každý večer. 2) Televizní zprávy začínají v osm hodin. 3) Tatínka nejvíce zajímá politika. 4) Tatínek komentuje televizní noviny. 5) Rodina se dívá na televizi a pije čaj.';
+}
+
+function submitForm17() {
+  var form = document.getElementById('testForm17');
+  var inputs = form.getElementsByTagName('input');
+  var wrongAnswers = [];
+
+  for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() === '') {
+          alert('Please fill in all fields before submitting.');
+          return;
+      }
+  }
+
+  var correctAnswers = ['je', 'hezké', 'začínají', 'bydlíme', 'trvá', 'kupujeme', 'sedíme', 'máme', 'máme', 'dobrou náladu', 'známe', 'pomáháme', 'chodíme', 'sbíráme', 'koupeme', 'veselé'];
+
+  for (var i = 0; i < inputs.length; i++) {
+      var userAnswer = inputs[i].value.trim();
+      if (userAnswer.toLowerCase() === correctAnswers[i]) {
+          inputs[i].classList.add('correct');
+      } else {
+          inputs[i].classList.add('incorrect');
+          wrongAnswers.push((i + 1) + '. ' + correctAnswers[i]);
+      }
+  }
+
+  var resultDiv = document.getElementById('result17');
+  if (wrongAnswers.length > 0) {
+      resultDiv.innerHTML = 'Wrong answers: ' + wrongAnswers.join(', ');
+  } else {
+      resultDiv.innerHTML = 'All answers are correct!';
+  }
+}
