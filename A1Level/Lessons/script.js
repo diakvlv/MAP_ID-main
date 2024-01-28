@@ -184,6 +184,11 @@ function submitForm10() {
   resultDiv.innerHTML = 'Bratr, otec, dědeček, babička, syn, teta. RODINA.'
 }
 
+function submitForm20() {
+  var resultDiv = document.getElementById('result20');
+  resultDiv.innerHTML = '1) Mladý kluk, který má hnědé vlasy, pije mléko. 2) Děti nesou těžké tašky. 3) Hladový kluk jí špagety a pije vodu..';
+}
+
 function submitForm4() {
   var form = document.getElementById('testForm4');
   var inputs = form.getElementsByTagName('input');
@@ -563,6 +568,103 @@ function submitForm17() {
   }
 
   var resultDiv = document.getElementById('result17');
+  if (wrongAnswers.length > 0) {
+      resultDiv.innerHTML = 'Wrong answers: ' + wrongAnswers.join(', ');
+  } else {
+      resultDiv.innerHTML = 'All answers are correct!';
+  }
+}
+
+
+function submitForm19() {
+  var form = document.getElementById('grammarTestForm');
+  var inputs = form.getElementsByTagName('input');
+  var answers = ['nepije', 'žiju', 'neseš', 'spíme', 'nejíte', 'řeknu', 'se bojíš', 'stojí', 'čtou', 'berete'];
+  var resultsDiv = document.getElementById('results');
+  var wrongAnswers = [];
+
+  for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() === '') {
+          alert('Please fill in all fields before submitting.');
+          return;
+      }
+  }
+
+  for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() !== answers[i]) {
+          inputs[i].classList.add('incorrect');
+          wrongAnswers.push('Question ' + (i + 1) + ': ' + inputs[i].value.trim() + ' (Correct answer: ' + answers[i] + ')');
+      } else {
+          inputs[i].classList.remove('incorrect');
+          inputs[i].classList.add('correct');
+      }
+  }
+
+  var resultDiv = document.getElementById('results');
+  if (wrongAnswers.length > 0) {
+      resultDiv.innerHTML = 'Wrong answers: ' + wrongAnswers.join(', ');
+  } else {
+      resultDiv.innerHTML = 'All answers are correct!';
+  }
+}
+
+function submitForm21() {
+  var form = document.getElementById('grammarTestForm1');
+  var inputs = form.getElementsByTagName('input');
+  var answers = ['jdeme', 'jde', 'jdou', 'jdeš', 'jdu', 'jdete', 'jdete'];
+  var resultsDiv = document.getElementById('results1');
+  var wrongAnswers = [];
+
+  for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() === '') {
+          alert('Please fill in all fields before submitting.');
+          return;
+      }
+  }
+
+  for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() !== answers[i]) {
+          inputs[i].classList.add('incorrect');
+          wrongAnswers.push('Question ' + (i + 1) + ': ' + inputs[i].value.trim() + ' (Correct answer: ' + answers[i] + ')');
+      } else {
+          inputs[i].classList.remove('incorrect');
+          inputs[i].classList.add('correct');
+      }
+  }
+
+  var resultDiv = document.getElementById('results1');
+  if (wrongAnswers.length > 0) {
+      resultDiv.innerHTML = 'Wrong answers: ' + wrongAnswers.join(', ');
+  } else {
+      resultDiv.innerHTML = 'All answers are correct!';
+  }
+}
+
+function submitForm22() {
+  var form = document.getElementById('testForm22');
+  var inputs = form.getElementsByTagName('input');
+  var wrongAnswers = [];
+
+  for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() === '') {
+          alert('Please fill in all fields before submitting.');
+          return;
+      }
+  }
+
+  var correctAnswers = ['chodím', 'říkají', 'není', 'jezdíme', 'přijdu', 'hraju', 'jsou', 'jedeme', 'leze'];
+
+  for (var i = 0; i < inputs.length; i++) {
+      var userAnswer = inputs[i].value.trim();
+      if (userAnswer.toLowerCase() === correctAnswers[i].toLowerCase()) {
+          inputs[i].classList.add('correct');
+      } else {
+          inputs[i].classList.add('incorrect');
+          wrongAnswers.push((i + 1) + '. ' + correctAnswers[i]);
+      }
+  }
+
+  var resultDiv = document.getElementById('result22');
   if (wrongAnswers.length > 0) {
       resultDiv.innerHTML = 'Wrong answers: ' + wrongAnswers.join(', ');
   } else {
