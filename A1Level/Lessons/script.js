@@ -450,6 +450,35 @@ function gradeQuiz() {
   }
 }
 
+function quiz() {
+    var answers = ["NE", "NE", "ANO", "NE", "ANO"];
+    var score = 0;
+    var results = document.getElementById("quiz");
+    var form = document.getElementById("quiz1");
+    var formData = new FormData(form);
+    var i = 0;
+  
+    for (var pair of formData.entries()) {
+        // Convert both the answer and the value to uppercase for comparison
+        if (pair[1].toUpperCase() === answers[i].toUpperCase()) {
+            score++;
+            form.elements["q" + (i + 1)].parentNode.classList.remove("incorrect");
+            form.elements["q" + (i + 1)].parentNode.classList.add("correct");
+        } else {
+            form.elements["q" + (i + 1)].parentNode.classList.remove("correct");
+            form.elements["q" + (i + 1)].parentNode.classList.add("incorrect");
+        }
+        i++;
+    }
+  
+    results.innerHTML = "Your score: " + score + "/5<br>";
+  
+    for (var j = 0; j < answers.length; j++) {
+        results.innerHTML += "Question " + (j + 1) + ": " + answers[j] + "<br>";
+    }
+}
+
+
 function checkAnswers() {
   var form = document.getElementById('testForm');
   var inputs = form.getElementsByTagName('input');
@@ -607,6 +636,31 @@ function submitForm19() {
       resultDiv.innerHTML = 'All answers are correct!';
   }
 }
+
+function submitForm23() {
+    var resultDiv = document.getElementById('result23');
+    resultDiv.innerHTML = '1) Náš starý dědeček si neholí nohy, protože je muž. 2) Potřebuju mýdlo a ručník, protože se sprchuju. 3) Chceme koupit holící strojek, protože je to dobrý dárek. 4) O víkendu neodpočívají home. 5) Uklízím dům každý den.';
+  }
+
+  function submitForm24() {
+    var resultDiv = document.getElementById('result24');
+    var text = "Jan:  Jak vypadá tvůj den, Marie? Vypadáš špatně." + "<br />" + "Marie: Máš pravdu. Každý den mám hodně práce. Odpočívám jenom o víkendu." + "<br />" + "Jan: Říkáš, že pracuješ každý den?" + "<br />" + "Marie: Ano, učím se a pracuju každý den. Proto mám jeden den volno." + "<br />" + "Jan: Aha. Jaký je tvůj typický pracovní den?"  + "<br />" + "Marie: Vstávám v 6:30 ráno. Potom si myju obličej, snídám, oblékám se a líčím se. Potřebuju jít v 7:30, protože nesmím být pozdě." + "<br />" + "Jan: Pracuješ a učíš se?"  + "<br />" + "Marie: Ano, učím se dopoledne a potom pracuju do 6 večer."   + "<br />" + "Jan: Asi je to těžké.";
+    resultDiv.innerHTML = text;
+  }
+
+function submitForm25() {
+    var resultDiv = document.getElementById('result25');
+    var text = "1) — c)" + "<br />" + "2) — b)";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm26() {
+    var resultDiv = document.getElementById('result26');
+    var text = "1) Eva vstává v 10 hodin, ale o víkendu vstává až ve 12 hodin." + "<br />" + "2) Petr vstává v 6 hodin ráno." + "<br />" + "3) Eva" + "<br />" + "4) Petr je ve škole odpoledne a někdy i večer." + "<br />" + "5) Odpoledne je ve škole, kde pracuje."  + "<br />" + "6) Petr" + "<br />" + "7) Eva"  + "<br />" + "8) Petr"   + "<br />" + "9) Eva" + "<br />" + "10) Eva večeří v 9 hodin, ale Petr večeří v 7 hodin večer.";
+    resultDiv.innerHTML = text;
+  }
+
+  
 
 function submitForm21() {
   var form = document.getElementById('grammarTestForm1');
