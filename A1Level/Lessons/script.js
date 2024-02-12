@@ -18,10 +18,66 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 
-function checkAnswers() {
-  var form = document.getElementById('testForm');
+
+
+function checkAnswers6() {
+    var correctAnswers = [
+      "devět",
+      "třicet pět",
+      "sto devadesát tři",
+      "dva tisíce tři sta padesát šest"
+    ];
+
+    var userAnswers = [];
+    for (var i = 1; i <= 4; i++) {
+      var answer = document.getElementById("q" + i).value.trim();
+      if (answer === "") {
+        alert("Please fill in all fields before submitting.");
+        return;
+      }
+      userAnswers.push(answer);
+    }
+
+    for (var i = 0; i < userAnswers.length; i++) {
+      if (userAnswers[i] === correctAnswers[i]) {
+        document.getElementById("q" + (i + 1)).className = "correct";
+      } else {
+        document.getElementById("q" + (i + 1)).className = "incorrect";
+      }
+    }
+  }
+
+function checkAnswers4() {
+    var correctAnswers = [
+      "patnáct", "dvacet dva", "třicet osm", "devět",
+      "sto dvacet tři", "pět set devadesát", "dva tisíce devadesát osm", "šestnáct tisíc tři sta sedmdesát pět",
+      "530", "28", "19", "115", "8111", "1300"
+    ];
+
+    var userAnswers = [];
+    for (var i = 1; i <= 14; i++) {
+      var answer = document.getElementById("q" + i).value.trim();
+      if (answer === "") {
+        alert("Please fill in all fields before submitting.");
+        return;
+      }
+      userAnswers.push(answer);
+    }
+
+    for (var i = 0; i < userAnswers.length; i++) {
+      if (userAnswers[i] === correctAnswers[i]) {
+        document.getElementById("q" + (i + 1)).className = "correct";
+      } else {
+        document.getElementById("q" + (i + 1)).className = "incorrect";
+      }
+    }
+  }
+
+
+function checkAnswers2() {
+  var form = document.getElementById('testForm30');
   var selects = form.getElementsByTagName('select');
-  var resultsDiv = document.getElementById('results');
+  var resultsDiv = document.getElementById('results10');
   var correctAnswers = ['a', 'e', 'd', 'b', 'c', 'g', 'f'];
   var incorrectCount = 0;
 
@@ -659,6 +715,44 @@ function submitForm25() {
     var text = "1) Eva vstává v 10 hodin, ale o víkendu vstává až ve 12 hodin." + "<br />" + "2) Petr vstává v 6 hodin ráno." + "<br />" + "3) Eva" + "<br />" + "4) Petr je ve škole odpoledne a někdy i večer." + "<br />" + "5) Odpoledne je ve škole, kde pracuje."  + "<br />" + "6) Petr" + "<br />" + "7) Eva"  + "<br />" + "8) Petr"   + "<br />" + "9) Eva" + "<br />" + "10) Eva večeří v 9 hodin, ale Petr večeří v 7 hodin večer.";
     resultDiv.innerHTML = text;
   }
+
+  function submitForm27() {
+    var resultDiv = document.getElementById('result27');
+    var text = "1) čtyři;" + "<br />" + "2) osm;" + "<br />" + "3) deset;" + "<br />" + "4) dvanáct;" + "<br />" + "5) čtyřicet;"  + "<br />" + "6) šedesát / padesát;" + "<br />" + "7) šestnáct;"  + "<br />" + "8) tři tisice;"   + "<br />" + "9) jedenáct";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm28() {
+    var resultDiv = document.getElementById('result28');
+    var text = "1) 775 229 476;" + "<br />" + "2) 567 323 121;" + "<br />" + "3) 667 845 907;" + "<br />" + "4) 323 445 076;" + "<br />" + "5) 134 476 515";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm29() {
+    var resultDiv = document.getElementById('result29');
+    var text = "1) deset;" + "<br />" + "2) třicet pět;" + "<br />" + "3) devadesát;" + "<br />" + "4) dvě stě padesát;" + "<br />" + "5) tisíc osmdesát devět;"  + "<br />" + "6) dva tisíce pět set osmdesát tři";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm30() {
+    var resultDiv = document.getElementById('result30');
+    var text = "1) je čtvrt na jedenáct a tři minuty;" + "<br />" + "2) je za dvě minuty čtvrt na dvanáct;" + "<br />" + "3) je tři čtvrtě na šest a tři minuty;" + "<br />" + "4) je za čtyři minuty čtvrt na osm;" + "<br />" + "5) je čtvrt na osm a čtyři minuty;"  + "<br />" + "6) je půl druhé a tři minuty;"  + "<br />" + "7) je za čtyři minuty čtvrt na dvanáct;" + "<br />" + "8) je za jednu minutu tři čtvrtě na jedenáct;" + "<br />" + "9) je čtvrt na deset a šest minut";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm31() {
+    var resultDiv = document.getElementById('result31');
+    var text = "1) je čtvrt na dvanáct;" + "<br />" + "2) je tři čtvrtě na dvě a dvě minuty;" + "<br />" + "3) je čtvrt na pět a jedna minuta;" + "<br />" + "4) je za jednu minutu půl osmé;" + "<br />" + "5) je čtvrt na dvě a čtyři minuty;"  + "<br />" + "6) je půl desáté a čtyři minuty;"  + "<br />" + "7) je za sedm minut čtvrt na deset;" + "<br />" + "8) je půl třetí a devět minut/ za šest minut tři čtvrtě na tři;" + "<br />" + "9) je za pět minut čtvrt na šest";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm32() {
+    var resultDiv = document.getElementById('result32');
+    var text = "1) je tři čtvrtě na čtyři;" + "<br />" + "2) je devět hodin;" + "<br />" + "3) je čtvrt na jednu;" + "<br />" + "4) je půl druhé;" + "<br />" + "5) je čtvrt na osm;";
+    resultDiv.innerHTML = text;
+  }
+
+
 
   
 
