@@ -494,5 +494,33 @@
       
   }
  
+  .container {
+    width: 1300px;
+    margin: 0 auto;
+}
+
+.flexHeaderLesson {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prev, .nextLes {
+    flex: 1; 
+}
+
+.lessonName {
+    flex: 2; 
+}
+
+.btn {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+}
+
+.cta2 {
+    margin: 0;
+}
 
    /* UNIT AREA END  */

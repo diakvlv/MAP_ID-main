@@ -753,6 +753,26 @@ function submitForm25() {
   }
 
 
+  function submitForm33() {
+    var resultDiv = document.getElementById('result33');
+    var text = "1) Milého číšníka, starého dědečka, usměvavou ženu, naši tetu, staré křeslo, nemocneho studenta." + "<br />" + "2) Horkou kávu, ovocný a zelený čaj, horkou čokoládu, černé pivo, alkoholický koktejl, červené víno, mexickou tequilu." + "<br />" + "3) Nemocného dědečka, starou babičku, malou sestřenici, vzdálenou příbuznou, českou tchýni." + "<br />" + "4) Smaženou zeleninu, čerstvou rybu, kuřecí maso, tvůj salát, zelenou okurku, balkánský sýr.";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm34() {
+    var resultDiv = document.getElementById('result34');
+    var text = "1) dobrou housku;" + "<br />" + "2) anglickou knihu a slovník" + "<br />" + "3) vídeňskou kávu;" + "<br />" + "4) bílý papír a růžovou obálku;" + "<br />" + "5) ten francouzský obraz;" + "<br />" + "6) starou známku;" + "<br />" + "7) to ošklivé supermoderní auto;" + "<br />" + "8) krásný barokní kostel;" + "<br />" + "9) drahou voňavku;" + "<br />" + "10) novou knihu;"  + "<br />" + "11) drahý šampon a krém.";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm35() {
+    var resultDiv = document.getElementById('result35');
+    var text = "Znám jednu starou zahradu, vrátka, žije, opálenou pleť, náhodou, stará vrba, čeká na.";
+    resultDiv.innerHTML = text;
+  }
+
+
+
 
   
 
@@ -818,4 +838,49 @@ function submitForm22() {
   } else {
       resultDiv.innerHTML = 'All answers are correct!';
   }
+}
+
+
+function submitTest() {
+    let answers = [
+        "nový film",
+        "ta sladká jahoda",
+        "ten hezký dům",
+        "pomerančová limonáda",
+        "stará ulice",
+        "krásné nové město",
+        "německá učebnice",
+        "hezký dárek",
+        "populární detektivka",
+        "velká skříň a drahá televize"
+    ];
+
+    let inputs = document.querySelectorAll('.answerBox');
+    let correct = true;
+    let anyEmpty = false;
+
+    inputs.forEach(function(input, index) {
+        let userAnswer = input.value.trim();
+        let correctAnswer = answers[index];
+
+        if (userAnswer === '') {
+            anyEmpty = true;
+            correct = false;
+            return;
+        }
+
+        if (userAnswer !== correctAnswer) {
+            input.classList.add('incorrect');
+            correct = false;
+        } else {
+            input.classList.remove('incorrect');
+            input.classList.add('correct');
+        }
+    });
+
+    if (anyEmpty) {
+        alert("Please fill in all fields before submitting.");
+    } else if (correct) {
+        alert("All answers are correct!");
+    }
 }
