@@ -272,6 +272,7 @@
         color:#fff;
         font-size: 1.3em;
         margin: auto;
+        align-self: center;
       }
   
       .cta2:hover, input[type=button]:hover {
