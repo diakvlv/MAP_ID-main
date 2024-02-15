@@ -771,6 +771,23 @@ function submitForm25() {
     resultDiv.innerHTML = text;
   }
 
+  function submitForm36() {
+    var resultDiv = document.getElementById('result36');
+    var text = "1) Ona se nesmí dívat na televizi." + "<br />" + "2) Oni umí dobře anglicky." + "<br />" + "3) Musime jim pomoci." + "<br />" + "4) On může přijít zítra." + "<br />" + "5) Honza musí vstávat v 7 hodin." + "<br />" + "6) Mohu vás navštívit v pondělí." + "<br />" + "7) Smíme jít do kina." + "<br />" + "8) Musím mu zavolat.";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm37() {
+    var resultDiv = document.getElementById('result37');
+    var text = "Odpovědi jsou pouze orientační:" + "<br />" + "Ukradli jim auto (oni). Musí zavolat na policii." + "<br />" + "Zapomněl jsem koupit pečivo (já). Musím se vrátit do obchodu." + "<br />" + "Neudělal zkoušku (on). Musi udělat zkoušku znovu." + "<br />" + "Nepíšou domácí úkoly (oni). Potřebují napsat domácí úkoly." + "<br />" + "Kamarádka mě pozvala večer na diskotéku (já). Potřebuju si koupit nové šaty." + "<br />" + "Máme špinavé ruce (my). Potřebujete/potřebujeme si umýt ruce." + "<br />" + "Chtějí jist (oni). Musí se najíst." + "<br />" + "Nemá čas (on). Potřebuje si odpočinout." + "<br />" + "Jezdíme dlouho do školy (my). Music jet autem."  + "<br />" + "Mají málo peněz (oni). Musí jít do práce.";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm38() {
+    var resultDiv = document.getElementById('result38');
+    var text = "Nechceš, nemůžu, musím, musím, nemůžu, musím, musím, můžu, můžeme.";
+    resultDiv.innerHTML = text;
+  }
 
 
 
@@ -880,6 +897,55 @@ function submitTest() {
 
     if (anyEmpty) {
         alert("Please fill in all fields before submitting.");
+    } else if (correct) {
+        alert("All answers are correct!");
+    }
+}
+
+
+function submitTest1() {
+    let answers = [
+        "umí",
+        "může",
+        "umíme",
+        "můžeme",
+        "umíš",
+        "můžeš",
+        "umíte",
+        "můžete",
+        "umí",
+        "můžeš",
+        "umějí",
+        "můžou",
+        "umí",
+        "může"
+    ];
+
+    let inputs = document.querySelectorAll('.answerBox');
+    let correct = true;
+    let anyEmpty = false;
+
+    inputs.forEach(function(input, index) {
+        let userAnswer = input.value.trim();
+        let correctAnswer = answers[index];
+
+        if (userAnswer === '') {
+            anyEmpty = true;
+            correct = false;
+            return;
+        }
+
+        if (userAnswer !== correctAnswer) {
+            input.classList.add('incorrect');
+            correct = false;
+        } else {
+            input.classList.remove('incorrect');
+            input.classList.add('correct');
+        }
+    });
+
+    if (anyEmpty) {
+        alert("Please fill in all the boxes.");
     } else if (correct) {
         alert("All answers are correct!");
     }
