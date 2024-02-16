@@ -789,6 +789,38 @@ function submitForm25() {
     resultDiv.innerHTML = text;
   }
 
+  function submitForm39() {
+    var resultDiv = document.getElementById('result39');
+    var text = "a) Co hezkého čteš?" + "<br />" + "b) Nebude to nic vážného." + "<br />" + "c) Říkají něco zajímavého." + "<br />" + "d) Chtějí poslouchat něco veselého." + "<br />" + "e) Nic nového už nepotřebuje." + "<br />" + "f) Dáme si něco sladkého." + "<br />" + "g) To nebude nic důležitého." + "<br />" + "h) Objednáš si něco dobreho?"  + "<br />" + "i) Potrebuju něco maleho";
+    resultDiv.innerHTML = text;
+  }
+  
+  function submitForm41() {
+    var resultDiv = document.getElementById('result41');
+    var text = "1) Něco ji baví." + "<br />" + "2) Nebyl tam žádný z těch kluků." + "<br />" + "3) Snad o tom nic neví." + "<br />" + "4) Někomu to řekla." + "<br />" + "5) Neznala je žádná studentka a žádný student." + "<br />" + "6) Tohle určitě něčí bude." + "<br />" + "7) Nikdo nám nepíše.";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm42() {
+    var resultDiv = document.getElementById('result42');
+    var text = "Víš o tom něco? Nic o tom nevím.." + "<br />" + "Čekáte na někoho? Na nikoho nečekám." + "<br />" + "Jakou kávu máte rádi? Žádnou kávu nemáme rádi." + "<br />" + "Bali se někoho? Nebáli se nikoho." + "<br />" + "Mluvili o nějaké cestě? Nemluvili o žádné cestě." + "<br />" + "Viděli tam nějakou dívku? Neviděli tam žádnou dívku." + "<br />" + "Je ta taška něčí? Není ta taška ničí." + "<br />" + "Rozuměli něčemu? Nerozuměli ničemu." + "<br />" + "Kterým autobusem přijeli? Žádným autobusem nepřijeli."  + "<br />" + "What do you think? Nepíšeme o ničem.";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm43() {
+    var resultDiv = document.getElementById('result43');
+    var text = "1. Nedívá se na žádný zajímavý film." + "<br />" + "2. Netěší se na nikoho." + "<br />" + "3. Nevědí nic." + "<br />" + "4. Nejedou nikam na víkend." + "<br />" + "5. Nemáme žádné nové informace." + "<br />" + "6. Žádné slovníky nejsou špatné." + "<br />" + "7. Nikdo nepotřebuje telefonovat." + "<br />" + "8. Nejde na žádnou výstavu." + "<br />" + "9. Nikde v Praze není irská restaurace."  + "<br />" + "12. Neznají žádného Američana."  + "<br />" + "11. Nikdo nevolá do Brna.";
+    resultDiv.innerHTML = text;
+  }
+
+  function submitForm44() {
+    var resultDiv = document.getElementById('result44');
+    var text = "1. Ne, nemáme žádný slovník." + "<br />" + "2. Ne, nevím ještě nic." + "<br />" + "3. Ne, nejede nikam." + "<br />" + "4. Ne, není tady nikdo" + "<br />" + "5. Ne, nemyslím na nikoho" + "<br />" + "6. Ne, nečtu žádnou knihu." + "<br />" + "7. Ne, tady nikde není" + "<br />" + "8. Ne, nikdy neposlouchám Beatles." + "<br />" + "9. Ne, nečekáme na nikoho.";
+    resultDiv.innerHTML = text;
+  }
+
+
+
 
 
   
@@ -948,5 +980,70 @@ function submitTest1() {
         alert("Please fill in all the boxes.");
     } else if (correct) {
         alert("All answers are correct!");
+    }
+}
+
+
+function submitForm40() {
+    var form = document.getElementById('testForm40');
+    var inputs = form.getElementsByTagName('input');
+    var wrongAnswers = [];
+
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.trim() === '') {
+            alert('Please fill in all fields before submitting.');
+            return;
+        }
+    }
+
+    var correctAnswers = ['Snídám', 'si dávám', 'čtu', 'se dívat', 'připravuju', 'kontroluju', 'Nasnídám se', 'dám si', 'se podívám', 'přečtu', 'připravím', 'zkontrolovat'];
+
+    for (var i = 0; i < inputs.length; i++) {
+        var userAnswer = inputs[i].value.trim();
+        if (userAnswer.toLowerCase() === correctAnswers[i].toLowerCase()) {
+            inputs[i].classList.add('correct');
+        } else {
+            inputs[i].classList.add('incorrect');
+            wrongAnswers.push((i + 1) + '. ' + correctAnswers[i]);
+        }
+    }
+
+    var resultDiv = document.getElementById('result40');
+    if (wrongAnswers.length > 0) {
+        resultDiv.innerHTML = 'Wrong answers: ' + wrongAnswers.join(', ');
+    } else {
+        resultDiv.innerHTML = 'All answers are correct!';
+    }
+}
+
+function submitForm45() {
+    var form = document.getElementById('testForm45');
+    var inputs = form.getElementsByTagName('input');
+    var wrongAnswers = [];
+
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.trim() === '') {
+            alert('Please fill in all fields before submitting.');
+            return;
+        }
+    }
+
+    var correctAnswers = ['Sám', 'za', 'co'];
+
+    for (var i = 0; i < inputs.length; i++) {
+        var userAnswer = inputs[i].value.trim();
+        if (userAnswer.toLowerCase() === correctAnswers[i].toLowerCase()) {
+            inputs[i].classList.add('correct');
+        } else {
+            inputs[i].classList.add('incorrect');
+            wrongAnswers.push((i + 1) + '. ' + correctAnswers[i]);
+        }
+    }
+
+    var resultDiv = document.getElementById('result45');
+    if (wrongAnswers.length > 0) {
+        resultDiv.innerHTML = 'Wrong answers: ' + wrongAnswers.join(', ');
+    } else {
+        resultDiv.innerHTML = 'All answers are correct!';
     }
 }
